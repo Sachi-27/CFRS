@@ -1,0 +1,111 @@
+In computer software, a general-purpose programming language is a programming 
+language designed to be used for building software in a wide variety of 
+application domains.
+
+Dart is also a general purpose programming language created by Google,
+can be used to operate Flutter. It is also an OOP language.
+
+Flutter is a cross platform UI toolkit(User Interface)/ SDK.
+This tutorial is enough to directly dive into Futter development.
+
+DART provides NULL SAFETY:
+That means if a static type does not permit null, then no possible execution of
+that expression can ever evaluate to null.
+
+**Dart pad has some sample codes as well, do look into them for flutter syntaxes.
+
+	int main() {
+		var num = 40; //static variable with type now fixed as int.
+		print(num); // outputs 40
+		return 1;
+	}
+	
+	void main(){
+		var num; //LINT: info : prefer initialising variables. There is no error though.
+		num = 20;
+		print(num); //prints 20
+	}
+	
+	int main() {
+		int num; //Completely fine.
+		num = 220;
+		print(num); // prints 220
+		return 1;
+	}
+
+var num; was a LINT because he compiler doesn't know what static type doesn it hold.
+Although it doesnt pops out errors.
+int num; is completely fine.
+Linting is the automated checking of your source code for programmatic and 
+stylistic errors.
+
+	void main(){
+		var x = 5;
+		x = 4.0; //error. cant store a double in a variable of type int.
+	}
+
+C and Java are also statically typed. Python and javascript are dynamically typed languages.
+
+When not specified any data type, dart uses type inference to infer the type and store it statically.
+That is, it won't let you change the type later.
+This kind of type inference is also in Kotlin and Swift.
+
+Instead of using type inference, you can choose specific data types instead.
+==> int, double, bool, String, dynamic
+
+dynamic keyword allows you to do dynamic variable creation in a statically typed language!!
+
+	void main(){
+		dynamic var = "For the win";
+		var = 30;
+		var = 0.5;
+	}
+This executes without any errors.
+
+
+==>Operators:
+Arithmetic operators are the same as C++.
+Except that division gives the output always as a double, even the division of integers
+is a double.
+This is different from C++.
+	void main(){
+		int a = 5, b = 2;
+		print(a/b); //prints 2.5
+	}
+	
+	void main(){
+		int a = 5, b = 2;
+		int m = a/b; //error: Cant store double in int.
+		print(m); 
+	}
+	
+Similarly we cant even store an int in a double, contrast to what we see in C++.
+
+	void main(){
+		int a = 5;
+		double b = a; //error as discussed.
+	}
+
+Comparison Operators, Logical Operators, Compound Arithmetic/Assignment Operators
+are the same as in C++;
+Even the modulo operator works here.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

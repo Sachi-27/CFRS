@@ -1,0 +1,109 @@
+Git : A version COntrol System 
+Two types of Version control ==> Central, Distributeed
+Ditributed VCS ==> every co developer has a back up of the remote repo
+
+Setting up config values:
+git config --global user.name "Sachi-27"
+git config --global user.email "sabya.liku@gmail.com"
+git config --list //lists all the config values
+
+Help desk/ manual:
+git <verb> --help
+or 
+git help <verb>
+
+Initialising git: //To have a track of changes
+git init // do within a repo/directory
+
+git status //gives status of files that are untracked and those under staging area
+
+Ignoring files:
+touch .gitignore
+// And put names of files which you want to ignore in .gitignore
+If you want to ignore all cpp files 
+write *.cpp in the .gitignore files
+
+Removing git: 
+rm -rf .git
+
+Adding files to staging area:
+git add calc.py //adds calc.py to staging area
+git status /check new status of files
+git add -A // to add all files in repo to staging area
+Now all these files will be commited.
+
+Removing files from staging area:
+git reset calc.py //removes calc.py from staging area and puts in back into untracked files
+git reset // removes all files from staging area
+
+Our First Commit:
+git add -A
+git commit -m "Initial Commit"
+git status //Shows nothing to commit, working directory clean as we have committed the changes
+git log // shows the recent commit. It gives the date, time, author and commit hash
+
+Cloning a remote repo //Suppose i want to clone a repo and work on it
+git clone <url> <where to clone>
+eg: git clone https://github.com/Sachi-27/remote_repo.git .
+do this inside the directory you want to clone, it always clones the files, not the entire repo 
+
+Viewing info abt remote repo:
+Do this in the cloned repo
+git remote -v 
+git branch -a // Lists all the branches in local repo + remote repo
+
+Pushing changes:
+First commit changes locally==>
+git diff //shows changes made to the codes
+git status //shows modified: 
+git add -A //adding to the staging area to make them ready to be committed
+git commit -m "Modified multiply function"
+
+Then push==>
+git pull origin master // Pulls changes made in the remote repo from where we cloned
+git push origin master // Pushing changes to master branch of remote repo
+
+Common Workflow:
+Create a branch for desired feature ==>
+git branch calc-divide
+git branch // lists all the local branches, asterisk at the branch where i am working currently
+git checkout calc-divide //switchs to "calc-divide" branch
+git branch //lists all branches, this time asterisk on calc-divide branch
+
+Now make changes==>
+git status // modified: calc.pull
+git add -A //ready to be commited
+git commit -m "Divide Function" //Commited but this has no effect of master branch and remote repo
+
+Push branch to remote==>
+git push -u origin calc-divide //pushes calc-divide branch to remote repo
+git branch -a //shows the lists of local branches and all branches in remote repo
+
+We do this way because we need to check small parts before merging them all
+
+Merge a branch ==>
+git checkout master //switches to local master
+git pull origin master //Always pull changes from remote repo before commiting new
+git branch --merged //Branches which have been merged
+git merge calc-divide //merges the changes
+git push origin master //pushes to master of remote repo
+
+Delete a branch ==>
+git branch --merged // to check previous one worked successfully
+git branch -d calc-divide // Delete it coz we no longer need it
+git branch -a //we deleted calc-divide from local
+git push origin --delete calc-divide //deletes calc-divide from remote repo
+git branch -a 
+
+Faster Example:
+git branch subtract
+git checkout subtract
+Now make changes==>
+git status //modified it
+git add -A
+git commit -m "Subtract"
+git push -u origin subtract
+git checkout master
+git pull origin master
+git merge subtract
+git push origin master

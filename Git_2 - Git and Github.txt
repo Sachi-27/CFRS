@@ -1,0 +1,43 @@
+Git and Github
+
+Check:
+https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners
+for an intro to Git and Github practically
+
+Git is an open source, Version Control System/Tool
+Github is a company that designs software which integrate with git. 
+You dont need github to use git.
+But you can't operate github without git.
+Github has other alternative as well, like GitLab, etc
+Github makes sharing code easier.
+
+Commit:
+A commit is a record of what changes you have made since the last time you made a commit.
+Essentially, you make changes to your repo (for example, adding a file or modifying one) and then tell git to put those changes into a commit.
+Commits make up the essence of your project and allow you to jump to the state of a project at any other commit.
+git revert <hash code number> command //to backtrack.
+
+Branch:
+Official Git docs definition:
+A branch in Git is simply a lightweight movable pointer to one of these commits.
+
+git checkout -b <my branch name>
+Will create a new branch with this name and switch you to that bracnch.
+git branch // check where the asterisk is now.
+
+Master branch == name of the primary branch by default
+Git doesn't treat branches separately.
+But this is how git has been used triaditionally.
+Any commits in one branch wont affect the other branches unless you merge them.
+
+origin is the alias for the remote repository. This alias gets created by git the moment we clone a repo
+
+Pull Requests: Informing the repo owner of commits that you have made.
+If he merges Pull requests, then one can safely delete the branch.
+
+In order to get the most recent changes of remote repo to you local cloned repo.
+Use git pull origin master, or often shortened to git pull
+
+git log //lists all the commits with a unique hashcode
+
+

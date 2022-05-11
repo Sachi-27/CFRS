@@ -1,0 +1,83 @@
+==>Collections:
+Two most commonly used ones are Lists and Maps.
+
+==>Lists are same as arrays
+
+	void main(){
+		List countries = ['India', 'Nepal', 'Bhutan'];
+		final bestcountry = countries[0];
+		countries.add('Pakistan');
+		countries.remove('Tibet'); //doesn't remove anything, as this isn't present.
+		for(var country in countries){
+			print('$country is in South Asia');
+		}
+	}
+Learn about for-in loop used especially for lists.
+The perfect way of writing a list is	
+	List<String> countries = ['India', 'Nepal'];
+but even writing the foll is enough, the type inference will automatically understand the type
+	var countries = ['Akhand Bharat', 'Mars'];
+	
+==> Maps
+Key-value pair
+
+Again here the perfect way to write a map is	
+	Map<int, int> tuplespace = {4:5, 6:7, 10:23};
+but even writing the foll is enough, the type inference will automatically understand the type
+	var tuplespace = {4:5, 6:7, 10:23};
+	
+	void main(){
+		Map<String, int> calories = {'cake': 500, 'donuts': 150, 'cookies': 100};
+		var donutcalories = calories['donuts'] //type of donutcalories is int? , that is it can accept null as well! Think why?
+		calories['Brownie'] = 1300;// Adds another element to the map.
+	}
+	
+===>Functions:
+
+Same components as C++.
+We can nest functions, like defining functions within main also works.
+
+==>Optional Parameters:
+
+	String fullName(String first, String last, [String? title]) {
+		if (title == null) {
+			return '$first $last';
+		} else {
+			return '$title $first $last';
+		}	
+	}
+	
+	print(fullName('Joe', 'Howard'));
+	// Joe Howard
+
+	print(fullName('Albert', 'Einstein', 'Professor'));
+	// Professor Albert Einstein
+
+==> Named Parameters and Default Values:
+
+	bool withinTolerance({required int value, int min = 0, int max = 10}) {
+		return min <= value && value <= max;
+	}
+// you are allowed to supply in any order for named parameters.
+	print(withinTolerance(min: 1, max: 5, value: 11)); // false
+
+	print(withinTolerance(value: 5)); // true
+	
+
+==>Anonymous Functions:
+
+	// original anonymous function
+	final onPressed = () {
+		print('button pressed');
+	};
+
+	// refactored
+	final onPressed = () => print('button pressed');
+
+
+
+	final drinks = ['water', 'juice', 'milk'];
+	final bigDrinks = drinks.map((drink) => drink.toUpperCase());
+	print(bigDrinks); // (WATER, JUICE, MILK)
+
+.map takes all the list values and returns a new collection with them.

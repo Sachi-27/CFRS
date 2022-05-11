@@ -1,0 +1,104 @@
+==> Strings:
+
+	void main(){
+		String a = "Sabya";
+		var b = 'Sachi'; // Single and double inverted commas both work the same here.
+		String c = a + b; //concatenation property of strings 
+		print("$a and $b concatenated gives $c who has an AIR of ${27*10}");
+	}
+	Console: Sabya and Sachi concatenated gives SabyaSachi who has an AIR of 270
+
+Any expression within print strings can be given within the ${}.
+In case you want to print variables directly, using the same as above would work.
+But since it is an identifier, avoid using braces, it is a LINT.
+// INFO: Avoid using braces in interpolation when not needed.
+
+==> Escaping Strings:
+
+	void main(){
+		String str = "Don't touch it and \nget lost";
+		print(str);
+		str = 'Don\'t touch it';
+		print(str);
+		str = r"Don't touch it and \nget lost";
+		print(str);
+	}
+	
+	Output:
+	Don't touch it and 
+	get lost
+	Don't touch it
+	Don't touch it and 
+	get lost
+	
+If single quotes, then you have to be careful of escaping strings. hence use backslash to depict it
+If double quotes, you need not worry about it.
+If you want to show all the escape sequences as well in output, type r before string in double quotes.
+Prefixing r makes it a Raw String.
+
+==>Immutability:
+
+If you dont wanna change a variable throughout, 
+	If the value of variable is known during compilation, use const.
+	if its value gets known during execution use final.
+	
+==> Different from C++, where const is used for both the cases.
+
+	void main(){
+		const double pi; // error: const variables must be intialised
+		pi  = 4.355;	// because they can never be assigned.
+	}
+	
+	void main(){
+		const pi = 3.14;
+		final pie = 22/7;
+		final trap = pi*pie; // since its value will be known during execution, we use final.
+		print(trap);	// We couldn't use const for trap. That will lead to error.
+	}
+
+**Because const variables should be assigned with a constant during initialisation itself!
+Final can be used in place of const, but vice versa is not allowed.
+
+Shocking reveal is the following is allowed:
+	
+	void main(){
+		final double pie ;// just final pie would have given LINT, as the data type is not known during initialisation.
+		pie  = 22/7;
+		print(pie);	
+	}
+Final value can be assigned only once.
+Const value can't be assigned, they have to be initialised.	
+**So I would now on prefer using final everywhere. It is better and also usable at places where const can be used.
+
+==>Nullability:
+
+DART supports sound null safety: That means dart guarantees that a variable 
+which cannot hold the type null will not be assigned null.
+To allow the compiler to do so, add ? after data type name
+
+	void main(){
+		String? name;
+		print(name); // Output is "null"
+	}
+	
+	void main(){
+		String name;
+		print(name); //error: cannot display value without assigning it.
+	}
+
+
+==>Null Aware Operators:
+	
+	String middlename;
+	var name = middlename ?? 'None';
+// if middlename is not null assign middlename to null, else assign it the value 'None'.
+
+	print(middlename?.length);
+// Accessing properties of null objects
+// If the object itself is a null it returns null, else it returns the value of the property towards at the RHS.
+
+
+==> Control Flow
+Control Flow is handled using conditionals:
+if/elseif/else , do-while, while, break, continue, for loops same as C++.
+
