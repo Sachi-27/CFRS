@@ -1,3 +1,0 @@
-Hi all!
-This is Sabyasachi!
-I am new to Git and Github!
