@@ -1,0 +1,9 @@
+Dart is an Object Oriented Programming Language.
+Flutter projects can use both platform-specific and cross-platform code.
+The latter is written in Dart.
+
+Dart has mixin-based inheritance!
+That means although every class has atmost one superclass, a class body 
+can be reused in multiple class hierarchies.
+This is to aid the lack of multiple inheritances.
+
